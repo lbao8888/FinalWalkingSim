@@ -35,7 +35,7 @@ public class CCPlayer : MonoBehaviour
 
     public bool controlsLocked;
 
-    // ===== 移动平台变量 =====
+    // 移动平台变量
     private MovingPlatform currentPlatform;
 
     void Awake()
@@ -111,11 +111,11 @@ public class CCPlayer : MonoBehaviour
 
         Vector3 velocity = Vector3.up * verticalVelocity;
 
-        // ===== 玩家移动 =====
+        //玩家移动
         cc.Move((move + velocity) * Time.deltaTime);
     }
 
-    // ===== 检测移动平台 =====
+    //检测移动平台
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         MovingPlatform platform = hit.collider.GetComponent<MovingPlatform>();
@@ -130,7 +130,7 @@ public class CCPlayer : MonoBehaviour
         }
     }
 
-    // ===== 平台带动玩家 =====
+    //平台带动玩家
     void LateUpdate()
     {
         if (currentPlatform != null)
