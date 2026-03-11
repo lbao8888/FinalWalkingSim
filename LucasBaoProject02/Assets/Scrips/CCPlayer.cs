@@ -35,6 +35,9 @@ public class CCPlayer : MonoBehaviour
 
     public bool controlsLocked;
 
+    [Header("Player Visual")]
+    public GameObject playerMesh;
+
     // 移动平台变量
     private MovingPlatform currentPlatform;
 
@@ -197,6 +200,12 @@ public class CCPlayer : MonoBehaviour
         interactPressed = true;
     }
 
+    public void Interact()
+    {
+        Debug.Log("Interact Pressed");
+        interactPressed = true;
+    }
+
     public void RequestDialogue(NPCData npcData)
     {
         OnDialogueRequested?.Invoke(npcData);
@@ -220,6 +229,16 @@ public class CCPlayer : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+    }
+
+    public void EnablePlayerColliders(bool enable)
+    {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+
+        foreach (Collider col in colliders)
+        {
+            col.enabled = enable;
         }
     }
 }

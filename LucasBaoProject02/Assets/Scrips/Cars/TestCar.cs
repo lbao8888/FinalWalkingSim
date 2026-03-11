@@ -23,6 +23,8 @@ public class TestCar : MonoBehaviour
 
     private CCPlayer player;
 
+    private Transform originalCameraParent;
+
     private float horizontal;
     private float vertical;
 
@@ -61,18 +63,19 @@ public class TestCar : MonoBehaviour
 
         Debug.Log("Player Entered Car");
 
-        // 锁定玩家
         player.SetControlsLocked(true);
+        player.EnablePlayerColliders(false);
 
-        // 关闭玩家CharacterController
         player.GetComponent<CharacterController>().enabled = false;
 
-        // 隐藏玩家模型
-        player.gameObject.SetActive(false);
+        if (player.playerMesh != null)
+            player.playerMesh.SetActive(false);
 
-        // 摄像机移动到车
+        // 记录原始摄像机父物体
+        originalCameraParent = Camera.main.transform.parent;
+
+        // 摄像机切到车
         Camera.main.transform.SetParent(cameraPoint);
-
         Camera.main.transform.localPosition = Vector3.zero;
         Camera.main.transform.localRotation = Quaternion.identity;
     }
@@ -87,21 +90,18 @@ public class TestCar : MonoBehaviour
 
         isDriving = false;
 
-        // 恢复玩家
-        player.gameObject.SetActive(true);
+        if (player.playerMesh != null)
+            player.playerMesh.SetActive(true);
 
-        // 传送玩家
         player.transform.position = exitPoint.position;
 
-        // 恢复玩家控制
         player.SetControlsLocked(false);
 
-        // 开启CharacterController
         player.GetComponent<CharacterController>().enabled = true;
+        player.EnablePlayerColliders(true);
 
         // 摄像机回玩家
-        Camera.main.transform.SetParent(player.cameraTransform);
-
+        Camera.main.transform.SetParent(originalCameraParent);
         Camera.main.transform.localPosition = Vector3.zero;
         Camera.main.transform.localRotation = Quaternion.identity;
     }
