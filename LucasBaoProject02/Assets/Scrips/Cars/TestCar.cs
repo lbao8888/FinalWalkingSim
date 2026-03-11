@@ -28,6 +28,11 @@ public class TestCar : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    void Start()
+    {
+        SetupWheelFriction();
+    }
+
     void Update()
     {
         if (!isDriving) return;
@@ -140,5 +145,28 @@ public class TestCar : MonoBehaviour
         FRWheelColl.brakeTorque = brake;
         RLWheelColl.brakeTorque = brake;
         RRWheelColl.brakeTorque = brake;
+    }
+
+    void SetupWheelFriction()
+    {
+        // 前轮
+        FLWheelColl.forwardFriction = CopyFriction(FLWheelColl.forwardFriction, 1.5f);
+        FRWheelColl.forwardFriction = CopyFriction(FRWheelColl.forwardFriction, 1.5f);
+        FLWheelColl.sidewaysFriction = CopyFriction(FLWheelColl.sidewaysFriction, 1.4f);
+        FRWheelColl.sidewaysFriction = CopyFriction(FRWheelColl.sidewaysFriction, 1.4f);
+
+        // 后轮
+        RLWheelColl.forwardFriction = CopyFriction(RLWheelColl.forwardFriction, 2f);
+        RRWheelColl.forwardFriction = CopyFriction(RRWheelColl.forwardFriction, 2f);
+        RLWheelColl.sidewaysFriction = CopyFriction(RLWheelColl.sidewaysFriction, 1.8f);
+        RRWheelColl.sidewaysFriction = CopyFriction(RRWheelColl.sidewaysFriction, 1.8f);
+    }
+
+    // 辅助函数，用来快速修改 stiffness
+    WheelFrictionCurve CopyFriction(WheelFrictionCurve original, float newStiffness)
+    {
+        WheelFrictionCurve f = original;
+        f.stiffness = newStiffness;
+        return f;
     }
 }
