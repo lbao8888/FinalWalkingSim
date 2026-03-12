@@ -568,6 +568,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1708712013542680722, guid: 7253c136ad272924482bace98d61837c, type: 3}
   m_PrefabInstance: {fileID: 42229910}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &43111759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 43111760}
+  - component: {fileID: 43111761}
+  m_Layer: 5
+  m_Name: ChoicesContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &43111760
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43111759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080229444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &43111761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43111759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &49579685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5776,7 +5838,7 @@ Transform:
   m_GameObject: {fileID: 595541730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.51, y: 1.13, z: 52}
+  m_LocalPosition: {x: 12, y: 1.13, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15527,8 +15589,8 @@ MonoBehaviour:
   dialoguePanel: {fileID: 2080229443}
   displayName: {fileID: 1218236499}
   lineText: {fileID: 2130006777}
-  choicesContainer: {fileID: 0}
-  choiceButtonPrefab: {fileID: 0}
+  choicesContainer: {fileID: 43111760}
+  choiceButtonPrefab: {fileID: 2247103016066658864, guid: d7112126850034043a60811e8c7bec7f, type: 3}
 --- !u!4 &1498315738
 Transform:
   m_ObjectHideFlags: 0
@@ -20911,7 +20973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e407fdad24feb0d488d4d224b6e4836e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteractable
-  npcData: {fileID: 0}
+  npcData: {fileID: 11400000, guid: 2a57696d136ea344681be02a042fb751, type: 2}
 --- !u!136 &1963510613
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22578,7 +22640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2080229444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22593,6 +22655,7 @@ RectTransform:
   m_Children:
   - {fileID: 1218236497}
   - {fileID: 2130006779}
+  - {fileID: 43111760}
   m_Father: {fileID: 2130724360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
