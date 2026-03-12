@@ -16,7 +16,7 @@ MonoBehaviour:
   lines:
   - Hi!
   choices:
-  - choiceText: Where are my?
+  - choiceText: Hi!
     nextNode: {fileID: 11400000, guid: 5065fbaa158b424438fed3ab9542aadc, type: 2}
   - choiceText: (Go away)
     nextNode: {fileID: 11400000, guid: 5065fbaa158b424438fed3ab9542aadc, type: 2}

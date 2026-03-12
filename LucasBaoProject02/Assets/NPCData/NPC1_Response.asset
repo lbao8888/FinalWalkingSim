@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCData
   displayName: NPC1
   lines:
-  - OK
+  - YOOOOOOO
   choices: []
   nextNode: {fileID: 0}
